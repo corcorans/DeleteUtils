@@ -14,10 +14,8 @@ class DeleteUtils {
       foreach(self::serialize_dir($path) as $item) {
          $absolute_path = $path . DIRECTORY_SEPARATOR . $item;
 
-         if(is_dir($absolute_path) && !self::is_empty($absolute_path)) {
+         if(is_dir($absolute_path)) {
             self::rm_dir($absolute_path);
-            rmdir($absolute_path);
-         } else if(is_dir($absolute_path)) {
             rmdir($absolute_path);
          } else {
             unlink($absolute_path);
