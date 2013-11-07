@@ -8,7 +8,7 @@ class DeleteUtils {
    /**
     * Delete all files and directories within the root directory.
     *
-    * @param   String   The absolute path to the root directory.
+    * @param String $path The absolute path to the root directory.
     */
    public static function rm_dir($path) {      
       foreach(self::serialize_dir($path) as $item) {
@@ -26,11 +26,11 @@ class DeleteUtils {
    }
    
    /**
-    * Checks to see if a directory is empty
+    * Checks to see if a directory is empty.
     *
-    * @param   String   The absolute path to a directory.
+    * @param String $dir The absolute path to a directory.
     *
-    * @return true or false if the directory is empty or not
+    * @return boolean Returns true or false if the directory is empty or not
     */
    public static function is_empty($dir) {
       return count(self::serialize_dir($dir)) === 0; 
@@ -39,15 +39,15 @@ class DeleteUtils {
    /**
     * Removes . and .. from the array returned from scandir.
     *
-    * @param  String  The absolute path to a directory.
+    * @param String $dir The absolute path to a directory.
     *
-    * @return an array from scandir without . and ..
+    * @return mixed[] Array with . and .. remove from scandir.
     *
-    * @exception throws a runtime exception when scandir returns false
+    * @throws RuntimeException if scandir returns false.
     */
    public static function serialize_dir($dir) {
       if(scandir($dir) === false) {
-         throw new \RuntimeException("Scandir returned false, either $dir was not a directory or an I/O error occurred.");
+         throw new \RuntimeException('Scandir returned false, either $dir was not a directory or an I/O error occurred.');
       }
       
       return array_diff(scandir($dir), array('.', '..'));
