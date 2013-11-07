@@ -53,6 +53,4 @@ class DeleteUtils {
       return array_diff(scandir($dir), array('.', '..'));
    }
 }
-
-DeleteUtils::rm_dir('C:\\temp');
 ?>
