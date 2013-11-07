@@ -47,7 +47,7 @@ class DeleteUtils {
     */
    public static function serialize_dir($dir) {
       if(scandir($dir) === false) {
-         throw new \RuntimeException('Scandir returned false, either $dir was not a directory or an I/O error occurred.');
+         throw new \RuntimeException('scandir($dir) returned false, either $dir was not a directory or an I/O error occurred.');
       }
       
       return array_diff(scandir($dir), array('.', '..'));
