@@ -42,9 +42,17 @@ class DeleteUtils {
     * @param  String  The absolute path to a directory.
     *
     * @return an array from scandir without . and ..
+    *
+    * @exception throws a runtime exception when scandir returns false
     */
    public static function serialize_dir($dir) {
+      if(scandir($dir) === false) {
+         throw new \RuntimeException("Scandir returned false, either $dir was not a directory or an I/O error occurred.");
+      }
+      
       return array_diff(scandir($dir), array('.', '..'));
    }
 }
+
+DeleteUtils::rm_dir('C:\\temp');
 ?>
