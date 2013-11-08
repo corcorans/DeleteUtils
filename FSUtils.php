@@ -15,7 +15,7 @@ class FSUtils {
          $absolute_path = $path . DIRECTORY_SEPARATOR . $item;
 
          if(is_dir($absolute_path)) {
-            self::rm_dir($absolute_path);
+            self::rmdir_fr($absolute_path);
             rmdir($absolute_path);
          } else {
             unlink($absolute_path);
