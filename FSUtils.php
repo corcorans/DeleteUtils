@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Utility class that works with deleting files and directories.
+ * Utility class that works with the File System.
  */
 class FSUtils {
 
