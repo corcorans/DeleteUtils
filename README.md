@@ -1,4 +1,4 @@
-DeleteUtils
+FSUtils
 ===========
 
-A utility class that works with deleting files and directories.
+A utility class that works with the file system.
